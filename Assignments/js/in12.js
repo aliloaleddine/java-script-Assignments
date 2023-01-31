@@ -59,3 +59,56 @@ function ageInTime(theAge) {
 ageInTime(110); // Age Out Of Range
 ageInTime(38); // Months Example => 456 Months
 console.log("---------------");
+console.log("Assignments 4");
+function checkStatus(a = "Unknown", b = "Unknown", c = false) {
+  let Name;
+  let Age;
+  let Status;
+  let info = [a, b, c];
+
+  for (i = 0; i < 3; i++) {
+    typeof info[i] == "string"
+      ? (Name = info[i])
+      : typeof info[i] == "number"
+      ? (Age = info[i])
+      : info[i] == true
+      ? (Status = "Your Are Available For Hire")
+      : (Status = "Your Are Not Available For Hire");
+  }
+
+  console.log(`Hello ${Name}, Your Age Is ${Age},${Status}`);
+}
+// Needed Output
+checkStatus("Osama", 38, true); // "Hello Osama, Your Age Is 38, You Are Available For Hire"
+checkStatus(38, "Osama", true); // "Hello Osama, Your Age Is 38, You Are Available For Hire"
+checkStatus(true, 38, "Osama"); // "Hello Osama, Your Age Is 38, You Are Available For Hire"
+checkStatus(false, "Osama", 38); // "Hello Osama, Your Age Is 38, You Are Not Available For Hire"
+console.log("---------------");
+document.write("<h1>Assignments 5 </h1>");
+function createSelectBox(startYear, endYear) {
+  document.write(`<select>`);
+  for (i = startYear; i <= endYear; i++) {
+    document.write(`<option> ${i}</option>`);
+  }
+  document.write(`</select>`);
+}
+createSelectBox(2000, 2021);
+document.write("<hr>");
+
+console.log("Assignments 6");
+function multiply(...numbers) {
+  let m = 1;
+  for (i = 0; i < numbers.length; i++) {
+    if (typeof numbers[i] == "string") {
+      continue;
+    } else if (numbers[i] % 1 != 0) {
+      numbers[i] = parseInt(numbers[i]);
+    }
+    m *= numbers[i];
+  }
+  console.log(m);
+}
+multiply(10, 20); // 200
+multiply("A", 10, 30); // 300
+multiply(100.5, 10, "B"); // 1000
+console.log("---------------");
